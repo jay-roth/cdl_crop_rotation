@@ -34,8 +34,7 @@ beg_yr = 2010
 ## number of years to fetch data for
 num_yrs = 6
 
-#### END USER Defined variables, don't edit below if you don't#################
-
+#### END USER Defined variables, edit below at your own risk ##################
 
 ## set working dir
 cwd = os.getcwd()

@@ -22,16 +22,16 @@ import pandas as pd
 
 #### USER Defined variables ###################################################
 ## if true, will delete CDL raster after computation is done
-clean_up = True
+clean_up = False
 
 ## shape file to mask raster in assessing dominant crop, this is fld bdry/AOI
 clip_file = 'test_area.shp'
 
 ## beginning year
-beg_yr = 2010
+beg_yr = 2011
 
 ## number of years to fetch data for
-num_yrs = 6
+num_yrs = 4
 
 #### END USER Defined variables, edit below at your own risk ##################
 

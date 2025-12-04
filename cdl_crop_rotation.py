@@ -10,7 +10,6 @@ Created on Thu Dec  4 09:48:54 2025
 Pulls Cropland data layer raster for an AOI shapefile and range of years
 then calculates the dominant crop/cover within the AOI for each year and stores 
 results to a csv
-
 """
 import os
 import requests as req

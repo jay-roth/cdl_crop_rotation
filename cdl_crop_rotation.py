@@ -55,7 +55,7 @@ err = False
 
 cdl_yrs = [2009, 2024]
 
-## check if the proposed timeframe and number of years is with CDL params
+## check if the proposed timeframe and number of years is within CDL params
 if num_yrs > cdl_yrs[1] - cdl_yrs[0]:
     num_yrs = cdl_yrs[1] - cdl_yrs[0]
 
@@ -65,7 +65,7 @@ if beg_yr < cdl_yrs[0]:
 if beg_yr > cdl_yrs[1]:
     beg_yr = cdl_yrs[1] - num_yrs
     
-## check directory structure
+## check directory structure and contents
 for d in dirs:
     if not os.path.exists(os.path.join(cwd, d)):
         ## needs to have a geometry to clip from in the geometry folder
@@ -166,7 +166,7 @@ else:
             ## get the name (string) of the crop
             crop_name = cmap.loc[cmap.Codes==crop_max]['Current Class Names'].values[0]
             
-            ## store the year and the crop to
+            ## store the year and the crop to the results list
             results.append([yr, crop_name])
             
     ## store all results to a data frame

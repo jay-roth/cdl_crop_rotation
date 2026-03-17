@@ -25,7 +25,7 @@ import pandas as pd
 clean_up = False
 
 ## shape file to mask raster in assessing dominant crop, this is fld bdry/AOI
-clip_file = 'test_area.shp'
+clip_file = 'mahn_farm.shp'
 
 ## beginning year
 beg_yr = 2011
@@ -37,6 +37,8 @@ num_yrs = 4
 
 ## set working dir
 cwd = os.getcwd()
+
+
 
 ## dirs required for structure
 dirs = ['geometry', 'results', 'raster']
@@ -53,11 +55,11 @@ results = []
 ## error switch
 err = False
 
-cdl_yrs = [2009, 2024]
+cdl_yrs = [2020, 2025]
 
 ## check if the proposed timeframe and number of years is within CDL params
-if num_yrs > cdl_yrs[1] - cdl_yrs[0]:
-    num_yrs = cdl_yrs[1] - cdl_yrs[0]
+#if num_yrs > cdl_yrs[1] - cdl_yrs[0]:
+#    num_yrs = cdl_yrs[1] - cdl_yrs[0]
 
 if beg_yr < cdl_yrs[0]:
     beg_yr = cdl_yrs[0]
@@ -173,7 +175,7 @@ else:
     results = pd.DataFrame(results, columns=['year', 'crop'])
     
     ## path to store csv of results
-    out_path  = os.path.join(cwd, 'results', "rotation_{0}_{1}_{2}.csv".format(beg_yr, yr, bb_str))
+    out_path  = os.path.join(cwd, 'results', "{0}_rotation_{1}_{2}_{3}.csv".format(clip_file.split('.')[0], beg_yr, yr, bb_str))
     
     ## remove prior output just in case its corrupt
     if os.path.exists(out_path):

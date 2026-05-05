@@ -9,7 +9,12 @@ Created on Thu Dec  4 09:48:54 2025
 
 Pulls Cropland data layer raster for an AOI shapefile and range of years
 then calculates the dominant crop/cover within the AOI for each year and stores 
-results to a csv
+results to a csv.
+
+User points script to a shapefile (clip_file) located with a directory
+named "geometry" within the working directory. The shapefile should contain
+a single polygon representing the AOI for the crop/cover rotation.
+
 """
 import os
 import requests as req
@@ -19,6 +24,8 @@ import rasterio.mask as mask
 import numpy as np
 import geopandas as gpd
 import pandas as pd
+from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib import pyplot as plt
 
 #### USER Defined variables ###################################################
 ## if true, will delete CDL raster after computation is done
@@ -175,9 +182,13 @@ else:
     ## path to store csv of results
     out_path  = os.path.join(cwd, 'results', "rotation_{0}_{1}_{2}.csv".format(beg_yr, yr, bb_str))
     
+    
+    
+    
     ## remove prior output just in case its corrupt
     if os.path.exists(out_path):
         os.remove(out_path)
         
     ## write csv
     results.to_csv(out_path, index=False) 
+
